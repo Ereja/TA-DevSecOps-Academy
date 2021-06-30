@@ -10,12 +10,8 @@ const CardSearch = ({ cards }) => {
 
   const searchChange = e => setSearch(e.target.value);
 
-  //   .startsWith() is case sensitive, if someone searches for "card" instead of "Card", they will find nothing. Capitalising first letter fixes the issue
-  const capitalizeFirstLetter = string =>
-    string.charAt(0).toUpperCase() + string.slice(1);
-
   const displayedCards = cards.filter(
-    card => !search || card.title.startsWith(capitalizeFirstLetter(search))
+    card => !search || (card.title.toLowerCase().startsWith(search.toLowerCase()))
   );
 
   return (
