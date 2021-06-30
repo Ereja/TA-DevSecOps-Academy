@@ -11,12 +11,12 @@ function isBodyEmpty(value) {
 }
 
 //making sure that value exist
-function isValid(title) {
+function isValidTitle(title) {
   if (title) return true;
 }
 
 module.exports = {
   isObject,
   isBodyEmpty,
-  isValid,
+  isValidTitle,
 };

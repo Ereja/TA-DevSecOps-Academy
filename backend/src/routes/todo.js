@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const { addTodo, getTodoById } = require("../dataStore");
-const { isObject, isBodyEmpty, isValid } = require("../../utils/utils");
+const { isObject, isBodyEmpty, isValidTitle } = require("../../utils/utils");
 const TodoRoute = Router({ mergeParams: true });
 
 TodoRoute.get("/:id", (req, res) => {
@@ -13,7 +13,7 @@ TodoRoute.post("/", function (req, res) {
   // TODO: Validate the request body
   const { title } = req.body;
 
-  if (!isObject(req.body) || isBodyEmpty(req.body) || !isValid(title)) {
+  if (!isObject(req.body) || isBodyEmpty(req.body) || !isValidTitle(title)) {
     res.status(400).send("You must enter a title to add a 'ToDo' task.");
   } else {
     const newToDo = {
