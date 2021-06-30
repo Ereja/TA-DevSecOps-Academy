@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Input } from "antd";
-
-import Card from "../card";
-import "./style.css";
+import Card from "../Card/Card";
+import "./CardSearch.css";
 
 import React from "react";
 

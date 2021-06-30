@@ -1,5 +1,4 @@
-import Card from './index';
-
+import Card from './Card';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event'
 

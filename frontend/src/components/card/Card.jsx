@@ -1,9 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { UpOutlined, DownOutlined } from "@ant-design/icons";
 
-import "./card.css";
-
-import React from "react";
+import "./Card.css";
 
 const Card = ({ title, description }) => {
   const [expanded, setExpanded] = useState(false);
