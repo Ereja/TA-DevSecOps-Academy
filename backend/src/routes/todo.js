@@ -6,7 +6,13 @@ const TodoRoute = Router({ mergeParams: true });
 TodoRoute.get("/:id", (req, res) => {
   const { id } = req.params;
 
-  return res.send(getTodoById(id));
+  if (!Number.isInteger(+id)) {
+    res.status(400).send("ID must be an integer");
+  } else if (!getTodoById(id)) {
+    res.status(404).send("There is no ToDo list with such ID");
+  } else {
+    res.status(200).send(getTodoById(id));
+  }
 });
 
 TodoRoute.post("/", function (req, res) {
@@ -24,7 +30,7 @@ TodoRoute.post("/", function (req, res) {
     addTodo(newToDo);
     res.status(201).json({
       message: `A new Todo task "${newToDo.title}" has been succesfully added.`,
-      added_task_details: newToDo,
+      newToDo,
     });
   }
 });
