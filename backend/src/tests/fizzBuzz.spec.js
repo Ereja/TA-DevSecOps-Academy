@@ -50,7 +50,7 @@ describe("POST /fizzBuzz/:number/fizzBuzz/:number", () => {
       });
   });
 
-  it("Show Buzz if given number can be divided by 3 and 5", done => {
+  it("Show FizzBuzz if given number can be divided by 3 and 5", done => {
     chai
       .request(server)
       .post("/fizzBuzz/15")
