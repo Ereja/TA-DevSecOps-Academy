@@ -1,5 +1,5 @@
 import CardSearch from "./CardSearch";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, screen } from "@testing-library/react";
 
 test("All provided cards renders", () => {
   const cards = ["Card #1", "Card #2", "Alice", "Bob"].map(title => ({
@@ -11,6 +11,13 @@ test("All provided cards renders", () => {
   // Cards container
   const cardsContainer = cardSearchElement.getByTestId("card-container");
   expect(cardsContainer.children.length).toEqual(cards.length);
+
+  // Check if correct cards are on the screen
+  const cardOneElement = screen.getByText("Card #1");
+  expect(cardOneElement).toBeInTheDocument();
+
+  const cardTwoElement = screen.getByText("Card #2");
+  expect(cardTwoElement).toBeInTheDocument();
 });
 
 test("Renders only cards that matches filter", () => {
