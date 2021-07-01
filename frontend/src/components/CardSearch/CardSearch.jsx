@@ -14,8 +14,6 @@ const CardSearch = ({ cards }) => {
     card => !search || card.title.toLowerCase().startsWith(search.toLowerCase())
   );
 
-  const generatedKey = () => Math.floor(Math.random() * 100000);
-
   return (
     <>
       <div className="card-container-searchbar center-items">
@@ -26,9 +24,9 @@ const CardSearch = ({ cards }) => {
         />
       </div>
       <div className="card-container" data-testid="card-container">
-        {displayedCards.map(card => (
+        {displayedCards.map((card, i) => (
           <Card
-            key={generatedKey()}
+            key={i}
             title={card.title}
             description={card.description}
           />
