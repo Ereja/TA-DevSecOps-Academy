@@ -10,13 +10,8 @@ const DATA = {
 };
 
 function getTodoById(id) {
-  if (!Number.isInteger(+id)) {
-    throw new TypeError("Id must be integer");
-  } else if (+id > DATA.todos.length - 1) {
-    throw new Error("There is no such todo item");
-  }
-
-  return JSON.parse(JSON.stringify(DATA.todos[id]));
+  // if nothing is found, returns false - as such item doesn`t exist
+  return DATA.todos[id] ? JSON.parse(JSON.stringify(DATA.todos[id])) : false;
 }
 
 function addTodo(data) {
